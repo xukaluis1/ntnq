@@ -30,17 +30,17 @@
           <div class="links">
               <div class="link">
                 <i class="fa-solid fa-circle-info" style="font-size: 30px;"></i>
-                <a href="">Resume</a>
+                <a href="resume.html">Resume</a>
                 <i class="fas fa-ellipsis-v"></i>
               </div>
-              <div class="link">
+              <div class="link" onclick="window.location.href='https://www.facebook.com/quynh.jasmine.7'">
                 <i class="fa-brands fa-facebook" style="font-size: 30px;"></i>
-                <a href="https://www.facebook.com/quynh.jasmine.7">Facebook</a>
+                <span>Facebook</span>
                 <i class="fas fa-ellipsis-v"></i>
               </div>
               <div class="link">
                 <i class="fa-brands fa-linkedin" style="font-size: 30px;"></i>
-                <a href="">Linkedln</a>
+                <a href="https://www.linkedin.com/in/tran-nq-nguyen?trk=contact-info">Linkedln</a>
                 <i class="fas fa-ellipsis-v"></i>
               </div>
               <div class="link">
@@ -60,45 +60,40 @@
               </div>
           </div>
       </div>
-  </body>
 
-  <script>
-        const infipa = document.querySelectorAll(".overmove");
-
-        infipa.forEach(infi => {
-        const infipar = infi.querySelector(".overmove div");
-
-        const infipacon = Array.from(infipar.children);
-
-        infipacon.forEach(item => {
-          const duplicatedItem = item.cloneNode(true);
-          infipar.appendChild(duplicatedItem);
-          infipar.style.animation = "move 20s linear infinite";
+      <script>
+        document.querySelectorAll(".overmove").forEach(infi => {
+            const infipar = infi.querySelector(".overmove div");
+            Array.from(infipar.children).forEach(item => {
+                infipar.appendChild(item.cloneNode(true));
+            });
+            infipar.style.animation = "move 20s linear infinite";
         });
-      });
-  </script>
-  <script>
-    const menu = document.querySelector('.menu');
-    const menuBtn = document.querySelector('.menu-btn');
-
-    menuBtn.addEventListener('click', () =>{
-      menu.classList.toggle('menu-open');
-    });
 
 
-    const faqs = document.querySelectorAll(".faq");
 
-    faqs.forEach(faq => {
-      faq.addEventListener("click",() => {
-        faq.classList.toggle("active")
-      })
-    })
-  </script>
-  <script>
-    function confirmCall(phoneNumber) {
-        if (confirm('Are you sure call to ' + phoneNumber + '?')) {
-            window.location.href = 'tel:' + phoneNumber;
+        const menu = document.querySelector('.menu');
+        const menuBtn = document.querySelector('.menu-btn');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('menu-open');
+        });
+
+
+
+        document.querySelectorAll(".faq").forEach(faq => {
+            faq.addEventListener("click", () => {
+                faq.classList.toggle("active");
+            });
+        });
+
+
+
+        function confirmCall(phoneNumber) {
+            if (confirm(`Are you sure you want to call ${phoneNumber}?`)) {
+                window.location.href = `tel:${phoneNumber}`;
+            }
         }
-    }
-  </script>
+      </script>
+  </body>
 </html>
