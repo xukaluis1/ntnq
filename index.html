@@ -24,43 +24,114 @@
   <body>
       <div class="container">
           <img src="quynh.png"/>
-          <h1>Nguyen Tran Nhu Quynh</h1>
+          <div class="welcome">
+            <span>Nguyen</span>
+            <span>Tran</span>
+            <span>Nhu</span>
+            <span>Quynh</span>
+          </div>
           <p></p>
           
           <div class="links">
-              <div class="link">
+              <div class="link" onclick="window.location.href='resume.html'">
                 <i class="fa-solid fa-circle-info" style="font-size: 30px;"></i>
-                <a href="resume">Resume</a>
-                <i class="fas fa-ellipsis-v"></i>
+                <span>Resume</span>
+                <i class="fas fa-ellipsis-v" data-link="resume.html" onclick="showShare(event)"></i>
               </div>
               <div class="link" onclick="window.location.href='https://www.facebook.com/quynh.jasmine.7'">
                 <i class="fa-brands fa-facebook" style="font-size: 30px;"></i>
                 <span>Facebook</span>
-                <i class="fas fa-ellipsis-v"></i>
+                <i class="fas fa-ellipsis-v" data-link="https://www.facebook.com/quynh.jasmine.7" onclick="showShare(event)"></i>
+                <!--<i class="fas fa-ellipsis-v" onclick="toggleInfo(event, 'Facebook link provides updates and information.');"></i>--->
               </div>
-              <div class="link">
+              <div class="link" onclick="window.location.href='https://www.linkedin.com/in/tran-nq-nguyen?trk=contact-info'">
                 <i class="fa-brands fa-linkedin" style="font-size: 30px;"></i>
-                <a href="https://www.linkedin.com/in/tran-nq-nguyen?trk=contact-info">Linkedln</a>
-                <i class="fas fa-ellipsis-v"></i>
+                <span>Linkedln</span>
+                <i class="fas fa-ellipsis-v" data-link="https://www.linkedin.com/in/tran-nq-nguyen?trk=contact-info'" onclick="showShare(event)"></i>
               </div>
-              <div class="link">
+              <div class="link" onclick="window.location.href='https://www.instagram.com/itsnewquynh'">
                 <i class="fa-brands fa-instagram" style="font-size: 30px;"></i>
-                <a href="https://www.instagram.com/itsnewquynh">Instagram</a>
-                <i class="fas fa-ellipsis-v"></i>
+                <span>Instagram</span>
+                <i class="fas fa-ellipsis-v" data-link="https://www.instagram.com/itsnewquynh" onclick="showShare(event)"></i>
               </div>
-              <div class="link">
+              <div class="link" onclick="confirmCall('+2068280824')">
                 <i class="fa-solid fa-phone" style="font-size: 30px;"></i>
-                <a href="#" onclick="confirmCall('+2068280824')">Phone: 206 828 0824</a>
-                <i class="fas fa-ellipsis-v"></i>
+                <span>Phone: +(206) 828 0824</span>
+                <i class="fas fa-ellipsis-v" data-link="+(206) 828-0824" onclick="showShare(event)"></i>
               </div>
-              <div class="link">
+              <div class="link" onclick="window.location.href='mailto:ntnq2906@gmail.com'">
                 <i class="fa-solid fa-envelope" style="font-size: 30px;"></i>
-                <a href="mailto:ntnq2906@gmail.com">Email: ntnq2906@gmail.com</a>
-                <i class="fas fa-ellipsis-v"></i>
+                <span>Email: ntnq2906@gmail.com</span>
+                <i class="fas fa-ellipsis-v" data-link="ntnq2906@gmail.com" onclick="showShare(event)"></i>
               </div>
           </div>
       </div>
 
+      <div class="share" style="display: none;">
+        <div class="overlay" onclick="hideShare()"></div>
+        <div class="profile-container">
+            <button class="close-button" onclick="hideShare()">&times;</button>
+            <div>
+              <h1>Share Link</h1>
+            </div>
+            <div class="cover-image">
+                <img src="blossom.png" alt="Cover Image">
+            </div>
+            <div class="main-image">
+                <img src="quynh.png" alt="Profile Image">
+            </div>            
+            <div class="link-container">
+                <input type="text" id="profileLink" value="" readonly>
+                <button class="copy-button" onclick="copyLink()">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <div id="message" class="message" style="display: none;">Link copied to clipboard!</div>
+        </div>
+      </div>
+
+
+      <script>
+          function toggleInfo(event, infoText) {
+              event.stopPropagation(); 
+              const infoDiv = event.target.closest('.link').nextElementSibling; 
+              infoDiv.style.display = infoDiv.style.display === 'block' ? 'none' : 'block'; 
+              infoDiv.textContent = infoText; 
+          }
+
+          function showShare(event) {
+              event.stopPropagation(); 
+              const shareDiv = document.querySelector('.share'); 
+              shareDiv.style.display = 'flex'; 
+              
+              const link = event.currentTarget.getAttribute('data-link');
+             
+              const linkInput = document.getElementById('profileLink');
+              linkInput.value = link; 
+          }
+
+          function hideShare() {
+              const shareDiv = document.querySelector('.share');
+              shareDiv.style.display = 'none'; 
+          }
+
+          function copyLink() {
+              const linkInput = document.getElementById('profileLink');
+              linkInput.select();
+              document.execCommand('copy');
+              const message = document.getElementById('message');
+              message.style.display = 'block'; 
+              setTimeout(() => {
+                  message.style.display = 'none';
+              }, 2000);
+          }
+
+          function confirmCall(phoneNumber) {
+              if (confirm(`Are you sure you want to call ${phoneNumber}?`)) {
+                  window.location.href = `tel:${phoneNumber}`;
+              }
+          }
+      </script>
       <script>
         document.querySelectorAll(".overmove").forEach(infi => {
             const infipar = infi.querySelector(".overmove div");
@@ -86,14 +157,6 @@
                 faq.classList.toggle("active");
             });
         });
-
-
-
-        function confirmCall(phoneNumber) {
-            if (confirm(`Are you sure you want to call ${phoneNumber}?`)) {
-                window.location.href = `tel:${phoneNumber}`;
-            }
-        }
       </script>
   </body>
 </html>
