@@ -15,6 +15,8 @@
         const link = event.currentTarget.getAttribute('data-link');
         const linkInput = document.getElementById('profileLink');
         linkInput.value = link;
+
+        setRandomCoverImage();
     }
 
     // Ẩn div chia sẻ
@@ -70,3 +72,16 @@
         });
         infipar.style.animation = "move 20s linear infinite";
     });
+
+    const coverImages = [
+        'pink.webp',
+        'bloom.png',
+        'bea-blos.gif',
+        'blossom.png' // bạn có thể thêm nhiều hình ảnh hơn
+    ];
+
+    // Hàm chọn hình ảnh ngẫu nhiên
+    function setRandomCoverImage() {
+        const randomIndex = Math.floor(Math.random() * coverImages.length);
+        document.getElementById('coverImage').src = coverImages[randomIndex];
+    }

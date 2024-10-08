@@ -77,12 +77,15 @@
             <div>
               <h1>Share Link</h1>
             </div>
-            <div class="cover-image">
-                <img src="blossom.png" alt="Cover Image">
+            <div class="cover-image" onclick="copyLink()">
+                <img id="coverImage" src="blossom.png" alt="Cover Image">
             </div>
-            <div class="main-image">
+            <div class="main-image" onclick="window.location.href='index.html'">
                 <img src="quynh.png" alt="Profile Image">
-            </div>            
+            </div>
+            <div class="user">
+              <h1>@quynh-uw</h1>
+            </div>  
             <div class="link-container">
                 <input type="text" id="profileLink" value="" readonly>
                 <button class="copy-button" onclick="copyLink()">

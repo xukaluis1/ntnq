@@ -301,6 +301,7 @@ a{
 .cover-image {
     border-radius: 20px; 
     overflow: hidden;
+    height: 200px;
 }
 
 .cover-image img {
@@ -326,7 +327,7 @@ a{
 .link-container {
     display: flex;
     align-items: center;
-    margin-top: 80px; 
+    margin-top: 30px; 
 }
 
 input[type="text"] {
@@ -361,4 +362,9 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 0.9rem;
+}
+.user h1{
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
 }
