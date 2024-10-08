@@ -5,6 +5,15 @@
     border-color: #e5e7eb
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+.dancing-script-<uniquifier> {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Georama:ital,wght@0,100..900;1,100..900&family=Grandstander:ital,wght@0,100..900;1,100..900&family=Lalezar&family=Permanent+Marker&family=Protest+Guerrilla&display=swap');
 
