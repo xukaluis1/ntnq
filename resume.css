@@ -187,3 +187,16 @@ footer {
     margin-top: 20px;
     font-size: 0.9rem;
 }
+
+.resumepdf {
+    width: 100%;
+    height: auto; 
+    overflow: hidden; 
+}
+
+.resume-image {
+    width: 100%; 
+    height: auto; 
+    object-fit: contain; 
+}
+

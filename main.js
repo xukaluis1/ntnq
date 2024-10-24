@@ -85,3 +85,36 @@
         const randomIndex = Math.floor(Math.random() * coverImages.length);
         document.getElementById('coverImage').src = coverImages[randomIndex];
     }
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const linksData = [
+//         {
+//             icon: "fa-snapchat-ghost",
+//             name: "Snapchat",
+//             url: "https://www.snapchat.com/add/your_snapchat_username"
+//         },
+//         {
+//             icon: "fa-whatsapp",
+//             name: "WhatsApp",
+//             url: "https://wa.me/your_whatsapp_number"
+//         }
+//     ];
+//
+//     const linksContainer = document.querySelector('.links');
+//
+//     linksData.forEach(link => {
+//         const linkDiv = document.createElement('div');
+//         linkDiv.classList.add('link');
+//         linkDiv.onclick = () => window.location.href = link.url;
+//
+//         linkDiv.innerHTML = `
+//             <i class="fa-brands ${link.icon}" style="font-size: 30px;"></i>
+//             <span>${link.name}</span>
+//             <i class="fas fa-ellipsis-v" data-link="${link.url}" onclick="showShare(event)"></i>
+//         `;
+//
+//         linksContainer.appendChild(linkDiv);
+//     });
+// });
+
